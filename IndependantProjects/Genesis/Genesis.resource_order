@@ -1,0 +1,15 @@
+{
+  "FolderOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"BobSpr","order":2,"path":"sprites/BobSpr/BobSpr.yy",},
+    {"name":"BobObj","order":1,"path":"objects/BobObj/BobObj.yy",},
+    {"name":"geneticHandler","order":3,"path":"objects/geneticHandler/geneticHandler.yy",},
+    {"name":"GoalSpr","order":1,"path":"sprites/GoalSpr/GoalSpr.yy",},
+    {"name":"VerticalSmall","order":2,"path":"paths/VerticalSmall/VerticalSmall.yy",},
+    {"name":"Vertical2","order":1,"path":"paths/Vertical2/Vertical2.yy",},
+    {"name":"MovingWall","order":4,"path":"objects/MovingWall/MovingWall.yy",},
+    {"name":"GoalObj","order":2,"path":"objects/GoalObj/GoalObj.yy",},
+    {"name":"VerticalSmall2","order":3,"path":"paths/VerticalSmall2/VerticalSmall2.yy",},
+    {"name":"MovingRoom","order":1,"path":"rooms/MovingRoom/MovingRoom.yy",},
+  ],
+}
