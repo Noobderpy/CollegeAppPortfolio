@@ -1,1 +1,1 @@
-These are the programs written for my Java and AP Computer Science classes
+These are the programs written in Java for my computer science classes.
