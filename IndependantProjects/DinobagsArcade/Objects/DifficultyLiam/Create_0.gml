@@ -1,0 +1,1 @@
+global.liamdifficulty = 0

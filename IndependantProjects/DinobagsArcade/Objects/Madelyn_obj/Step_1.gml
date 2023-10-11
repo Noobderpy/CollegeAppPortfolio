@@ -1,0 +1,1 @@
+dist = distance_to_object(Player_obj)
