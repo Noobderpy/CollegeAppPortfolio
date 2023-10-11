@@ -1,0 +1,1 @@
+global.kevindifficulty = 0

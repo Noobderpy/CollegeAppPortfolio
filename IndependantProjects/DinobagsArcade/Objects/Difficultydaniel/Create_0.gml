@@ -1,0 +1,1 @@
+global.danieldifficulty = 0
