@@ -1,0 +1,5 @@
+﻿  Vector.cpp
+C:\Users\mk_wi\source\repos\Vector\Vector\Vector.cpp(26,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mk_wi\source\repos\Vector\Vector\Vector.cpp(37,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\mk_wi\source\repos\Vector\Vector\Vector.cpp(47,23): warning C4018: '<': signed/unsigned mismatch
+  Vector.vcxproj -> C:\Users\mk_wi\source\repos\Vector\Debug\Vector.exe

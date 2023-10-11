@@ -1,0 +1,3 @@
+﻿  SelectionSort.cpp
+C:\Users\mk_wi\source\repos\SelectionSort\SelectionSort\SelectionSort.cpp(41,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  SelectionSort.vcxproj -> C:\Users\mk_wi\source\repos\SelectionSort\Debug\SelectionSort.exe
