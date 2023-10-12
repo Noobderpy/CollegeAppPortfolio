@@ -1,1 +1,1 @@
-Programs written in C++ for my various Computer Science Classes(Note: the folders contain several files used for compiling in Visual Studio, the actual program is the .cpp file)
+Programs written in C++ for my various Computer Science Classes(Note: the folders contain several files used for compiling in Visual Studio, the actual program is the .cpp file. which is in the folder with the program name, not the debug folder)
