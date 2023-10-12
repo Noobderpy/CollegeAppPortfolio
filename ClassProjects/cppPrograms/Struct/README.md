@@ -1,1 +1,1 @@
-P
+Practice using structures in C++
