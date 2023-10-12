@@ -1,1 +1,1 @@
-The framework required to make a neural network. Example dataset is included as the file TrainingData.
+The framework required to make a neural network. Example dataset is included as the file TrainingData, with the inputs being width and length of a flower and the output being if the flower is blue or orange(These data points are made up, just used as a test to show the program works)
