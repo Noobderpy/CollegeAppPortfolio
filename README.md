@@ -1,1 +1,1 @@
-Computer Science protfolio for my college application. Sorted by if I wrote it for class vs for fun, then by what programming language it is written in, then by the program itself. Each program has a brief description about what it does.
+Computer Science protfolio for my college application; sorted by if I wrote it for class vs for fun, then by what programming language it is written in, then by the program itself. Each program has a brief description about what it does.
