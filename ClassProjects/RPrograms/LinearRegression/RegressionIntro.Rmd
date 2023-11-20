@@ -1,0 +1,51 @@
+---
+title: "RegressionIntro"
+author: "Drew Winkeler"
+date: "2023-10-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Look at the famous "Iris" data set
+
+```{r}
+head(iris)
+```
+
+```{r}
+sapply(iris, function(x) sum(is.na(x)))
+```
+```{r}
+myModel <- lm(formula = (Petal.Length ~ Sepal.Length), data = iris)
+```
+
+```{r}
+head(round(myModel$fitted.values, 4))
+```
+
+
+```{r}
+predict(myModel, newdata = data.frame(Sepal.Length = 7))
+```
+```{r}
+plot(iris$Sepal.Length, myModel$residuals)
+abline(h = 0)
+```
+```{r}
+setosaModel <- lm(Petal.Length ~ Sepal.Length, data = subset(iris, Species == "setosa"))
+versicolorModel <- lm(Petal.Length ~ Sepal.Length, data = subset(iris, Species == "versicolor"))
+virginicaModel <- lm(Petal.Length ~ Sepal.Length, data = subset(iris, Species == "virginica"))
+
+plot(iris$Sepal.Length, iris$Petal.Length, pch = 19, col = factor(iris$Species))
+legend("topleft", legend = levels(factor(iris$Species)), pch = 19, col = factor(levels(iris$Species)))
+
+abline(setosaModel, col = "black", lwd = 3)
+abline(versicolorModel, col = "red", lwd = 3)
+abline(virginicaModel, col = "green", lwd = 3)
+```
+
+
+
