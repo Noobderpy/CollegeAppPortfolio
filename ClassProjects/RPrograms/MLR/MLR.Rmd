@@ -1,0 +1,84 @@
+---
+title: "MLR"
+author: "Drew Winkeler"
+date: "2023-11-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Import the data set
+```{r}
+swiss2 <- read.csv("swiss2-1.csv")
+```
+
+Show the head of the data set.
+```{r}
+head(swiss2)
+```
+
+Find the structure of the data set.
+```{r}
+str(swiss2)
+```
+
+Find the correlation matrix of the numerical variables.
+```{r}
+cor(swiss2[sapply(swiss2, is.numeric)], use = "pairwise.complete.obs")
+```
+
+Create a multiple linear regression model named "model1" that uses "Fertility" as the dependent variable and all other numerical variables as the independent variables. Print the summary of the model.
+```{r}
+myModel <- lm(formula = Fertility ~ Examination + Education + Infant.Mortality, data = swiss2)
+summary(myModel)
+```
+
+All three variables are significant. Examination has p<α(.017291 < .05), Education has p<α(.003833 < .05), and Infant Mortality has p<α(.000864 < .05), therefore they are all significant. Education may have a negative relationship with fertility because people who are educated better understand the risks of having sex. Examination may have a negative relationship with fertility because it is highly correlated with Education, and education has a negative relationship with fertility.
+
+I think this model is moderately effective with regards to its overall predictive capability because with the model, 61.91% of the variability in fertility can be explained by variability in education, variability in infant mortality, and variability in examination combined. This model explains a large portion of the variability in fertility but still leaves a large amount unexplained, therefore, I think it is moderately effective.
+
+Create a multiple linear regression model named "model2" that uses "Fertility" as the dependent variable and two other numeric variables as the independent variables. Your choice of the two independent variables should be justified. Remember, you are trying to make a model with excellent predictive capability. Print the summary of the model. (HINT: You may want to refer to the correlation matrix.)
+```{r}
+model2 <- lm(formula = Fertility ~ Infant.Mortality + Education, data = swiss2)
+summary(model2)
+```
+
+Infant Mortality and Educations are both significant to the model because for infant mortality p<α(.000951 < .05) and for Education p<α(1.27e-7 < .05), therefore they are both significant. The infant mortality may affect fertility because people need to get pregnant more if their babies die more. Education may have a negative relationship with fertility because people who are educated better understand the risks of having sex.
+
+I think this model is moderately effective with regards to its overall predictive capability because with the model, 56.48% of the variability in fertility can be explained by variability in education and variability in infant mortality. This model explains a large portion of the variability in fertility but still leaves a large amount unexplained, therefore, I think it is moderately effective.
+
+Create a multiple linear regression model named "model3" that uses "Fertility" as the dependent variable and "Education" and "CathLevel" as the independent variables. Print the summary of the model.
+```{r}
+model3 <- lm(Fertility ~ Education+CathLevel, data = swiss2)
+summary(model3)
+```
+
+CathLevellow, CathLevelmedium and Educations are all significant to the model because for CathLevellow p<α(.0001 < .05), for CathLevelmedium p<α(.019042 < .05)and for Education p<α(.000278 < .05), therefore they are all significant. When CathLevel is medium, many catholic may not be getting pregnant because they don't want to marry someone who isn't catholic, leading to its negative relationship. When CathLevel is high, they may be having many babies, leading to its high relationship with fertility. Education may have a negative relationship with fertility because people who are educated better understand the risks of having sex.
+
+I think the model is moderately effective with regards to its overall predictive capability because with the model, 61.1% of the variability in fertility can be explained by variability in education and variability in CathLevel. This model explains a large portion of the variability in fertility but still leaves a large amount unexplained, therefore, I think it is moderately effective.
+
+For each percent increase in people who have education beyond primary school, fertility decreases by .6285 on average. If CathLevel is medium, Fertility decreases by 14.0984 more than when CathLevel is high on average. If CathLevel is low, Fertility decreases by 11.2649 more than when CathLevel is high on average.
+
+Plot the "Education" variable on the x-axis and the "Fertility" variable on the y-axis. Is there any indication that the "Education" variable would be a good predictor of "Fertility?"
+```{r}
+plot(swiss2$Education,swiss2$Fertility)
+```
+
+There seems to be a moderate, negative correlation between Fertility and Education in our dataset.
+
+Plot the "CathLevel" variable on the x-axis and the "Fertility" variable on the y-axis. Is there any indication that the "CathLevel"  variable would be a good predictor of "Fertility?"
+```{r}
+boxplot(swiss2$Fertility~swiss2$CathLevel, horizontal = T)
+```
+
+Yes, it does seem to be a good prediction of fertility, but in an unexpected way. If it is high it is correlated with high fertility, but it is correlated with the lowest fertility when the catholic level is medium. This may indicated that if catholic level was a numerical variable rather than a factor, it may not have a linear relationship, but one of a different shape.
+
+15.Summarise any significant insights and findings you have discovered about the relationship of the various independent variables and "Fertility." Make sure to back up your insights and findings with statistics and references to your work above. (This should be at least 200 words.)
+
+In the first model, all three variables are significant. Examination has p<α(.017291 < .05), Education has p<α(.003833 < .05), and Infant Mortality has p<α(.000864 < .05), therefore they are all significant. Education may have a negative relationship with fertility because people who are educated better understand the risks of having sex. Examination may have a negative relationship with fertility because it is highly correlated with Education, and education has a negative relationship with fertility. I think this model is moderately effective with regards to its overall predictive capability because with the model, 61.91% of the variability in fertility can be explained by variability in education, variability in infant mortality, and variability in examination combined. This model explains a large portion of the variability in fertility but still leaves a large amount unexplained, therefore, I think it is moderately effective.
+
+In the second model, Infant Mortality and Educations are both significant to the model because for infant mortality p<α(.000951 < .05) and for Education p<α(1.27e-7 < .05), therefore they are both significant. The infant mortality may affect fertility because people need to get pregnant more if their babies die more. Education may have a negative relationship with fertility because people who are educated better understand the risks of having sex. I think this model is moderately effective with regards to its overall predictive capability because with the model, 56.48% of the variability in fertility can be explained by variability in education and variability in infant mortality. This model explains a large portion of the variability in fertility but still leaves a large amount unexplained, therefore, I think it is moderately effective.
+
+In the final model, CathLevellow, CathLevelmedium and Educations are all significant to the model because for CathLevellow p<α(.0001 < .05), for CathLevelmedium p<α(.019042 < .05)and for Education p<α(.000278 < .05), therefore they are all significant. When CathLevel is medium, many catholic may not be getting pregnant because they don't want to marry someone who isn't catholic, leading to its negative relationship. When CathLevel is high, they may be having many babies, leading to its high relationship with fertility. Education may have a negative relationship with fertility because people who are educated better understand the risks of having sex. I think this model is moderately effective with regards to its overall predictive capability because with the model, 61.1% of the variability in fertility can be explained by variability in education and variability in CathLevel. This model explains a large portion of the variability in fertility but still leaves a large amount unexplained, therefore, I think it is moderately effective. For each percent increase in people who have education beyond primary school, fertility decreases by .6285 on average. If CathLevel is medium, Fertility decreases by 14.0984 more than when CathLevel is high on average. If CathLevel is low, Fertility decreases by 11.2649 more than when CathLevel is high on average.
